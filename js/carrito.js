@@ -29,7 +29,7 @@ const miCarrito = () => {
     // --- Mostrar Productos Carrito
     carrito.forEach((product) => {
         let miCarritoContent = document.createElement("div");
-        miCarritoContent.className = "miCarrito-Content";
+        miCarritoContent.className = "miCarrito-content";
         miCarritoContent.innerHTML = `
         <img src="${product.img}">
         <h3>${product.name}</h3>
@@ -37,7 +37,7 @@ const miCarrito = () => {
         <button class="minus"> - </button>
         <p>Unidades: ${product.unit}</p>
         <button class="plus"> + </button>
-        <button class="delete-product"> X </button>
+        <button class="delete-product"> x </button>
 
         `;
         verMiCarrito.append(miCarritoContent);
@@ -69,7 +69,8 @@ const miCarrito = () => {
     
         // --- Total a pagar
 
-    const total = carrito.reduce((acc,  el) => acc + el.price, 0);
+    // const total = carrito.reduce((acc,  el) => acc + el.price, 0);
+    const total = carrito.reduce((acc, el) => acc + (el.price * el.unit), 0);
     
     const  miCarritoTotal = document.createElement("div");
      miCarritoTotal.className = "total-purchase";

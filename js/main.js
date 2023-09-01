@@ -5,6 +5,10 @@
 
 
 
+// prueba desestructuracion 
+
+
+
 // --------- Declaración de const elementos HTML
 const  shopProducts = document.getElementById(" shopProducts");
 const verMiCarrito = document.getElementById("verMiCarrito")
@@ -55,9 +59,21 @@ const getProducts = async () => {
                     price: product.price,
                     unit: product.unit,
                 });
+
+                swal.fire({
+                    title: ``,
+                    text:`${product.name} se agregó a tu carrito`,
+                    icon: `success`,
+                    confirmButtonText: false,
+                    timer: 1700
+                })
+
                 saveLocalStorage();
             }
             });
+
+
+
     });
     
 }
